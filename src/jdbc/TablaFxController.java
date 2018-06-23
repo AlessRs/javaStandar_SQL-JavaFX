@@ -28,14 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class TablaFxController implements Initializable {
     static LugarDAO DAO;
-    static{
-        try{
-            DAO = new LugarDAOImpl(AdministradorDeConecciones.obtenerConeccion());
-        }catch(SQLException ex){
-            Logger.getLogger(JdbcMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+    
     @FXML
     private TextField idText;
     private TextField responsableText;
@@ -95,6 +88,11 @@ public class TablaFxController implements Initializable {
         tablaVisible.add(new Lugar("1", "Pedro", "Jujuy 45600", "toplink"));
         tablaVisible.add(new Lugar("2", "Oscar", "Jujuy 45600", "toplink"));
         tabla.setItems(tablaVisible);
+        try{
+            DAO = new LugarDAOImpl(AdministradorDeConecciones.obtenerConeccion());
+        }catch(SQLException ex){
+            Logger.getLogger(JdbcMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
     
 }

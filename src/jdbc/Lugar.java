@@ -9,6 +9,10 @@ public class Lugar {
     private final StringProperty nombreResponsable;
     private final StringProperty direccion;
     private final StringProperty router;
+    
+    public Lugar (){
+        this("Juan Perez", "Calle Falsa 123", "Default");
+    }
 
     public Lugar(String nombreResponsable, String direccion, String router) {
         this.id = new SimpleStringProperty("-");
